@@ -5,7 +5,5 @@ package com.fju.gui;
  */
 
 public abstract class IUIInterface {
-    public void getUIPanel() {
-
-    }
+    public abstract void getUIPanel();
 }
