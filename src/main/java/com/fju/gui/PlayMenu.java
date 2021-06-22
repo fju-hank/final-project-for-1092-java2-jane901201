@@ -11,6 +11,20 @@ public class PlayMenu {
     private JLabel question;
     private JLabel topic;
     private JLabel time;
+    private JLabel Correct;
+    private JLabel incorrect;
+
+    public PlayMenu(JPanel playMenuPanel) {
+        this.playMenuPanel = playMenuPanel;
+    }
+
+    public PlayMenu() {
+
+    }
+
+    public JButton getAnswer1() {
+        return answer1;
+    }
 
     public JPanel getPlayMenuPanel() {
         return playMenuPanel;
