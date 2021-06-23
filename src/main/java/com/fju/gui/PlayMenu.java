@@ -2,7 +2,7 @@ package com.fju.gui;
 
 import javax.swing.*;
 
-public class PlayMenu {
+public class PlayMenu extends IUIInterface{
     private JPanel playMenuPanel;
     private JButton answer1;
     private JButton answer2;
@@ -26,11 +26,10 @@ public class PlayMenu {
         return answer1;
     }
 
-    public JPanel getPlayMenuPanel() {
-        return playMenuPanel;
-    }
 
-    public void setPlayMenuPanel(JPanel playMenuPanel) {
-        this.playMenuPanel = playMenuPanel;
+
+    @Override
+    public JPanel getUIPanel() {
+        return playMenuPanel;
     }
 }

@@ -13,7 +13,7 @@ public class PlayMenuTest {
         JFrame frame = new JFrame();
 
         PlayMenu playMenu = new PlayMenu();
-        frame.setContentPane(new PlayMenu().getPlayMenuPanel());
+        frame.setContentPane(new PlayMenu().getUIPanel());
         frame.setSize(300,500);
 
         frame.setVisible(true);

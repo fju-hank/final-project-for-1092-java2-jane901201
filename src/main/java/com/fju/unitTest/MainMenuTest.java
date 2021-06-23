@@ -9,7 +9,7 @@ public class MainMenuTest {
         MainMenu mainMenu = new MainMenu();
         JFrame frame = new JFrame();
 
-        frame.setContentPane(new MainMenu().getMainMenuPanel());
+        frame.setContentPane(new MainMenu().getUIPanel());
         frame.setSize(300,500);
 
 

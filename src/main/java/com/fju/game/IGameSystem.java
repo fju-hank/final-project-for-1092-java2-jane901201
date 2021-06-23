@@ -12,7 +12,7 @@ public class IGameSystem {
 
     public void checkAnswer(String playerAnswer,String correctAnswer) {
         if(playerAnswer != correctAnswer) {
-            //呼叫錯誤UI
+            //呼叫錯誤累積function
         }
         else {
             //呼叫正確UI

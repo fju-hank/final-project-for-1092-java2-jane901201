@@ -2,22 +2,16 @@ package com.fju.gui;
 
 import javax.swing.*;
 
-public class MainMenu {
+public class MainMenu extends IUIInterface{
     private JPanel mainMenuPanel;
-    private JButton historyButton;
-    private JButton button2;
-    private JButton qAButton;
-    private JButton button4;
+    private JButton internet;
+    private JButton qAButton = new JButton();
+    private JButton gameButton;
 
-    public JPanel getMainMenuPanel() {
+
+
+    @Override
+    public JPanel getUIPanel() {
         return mainMenuPanel;
     }
-
-    public void setMainMenuPanel(JPanel mainMenuPanel) {
-        this.mainMenuPanel = mainMenuPanel;
-    }
-
-
-
-
 }
