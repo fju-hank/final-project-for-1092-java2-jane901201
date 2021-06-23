@@ -1,6 +1,4 @@
-package com.fju.sql;
-
-import java.util.ArrayList;
+package com.fju.sqlData;
 
 public abstract class ISQLInetface {
 

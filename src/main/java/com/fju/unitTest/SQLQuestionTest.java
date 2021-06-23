@@ -1,6 +1,6 @@
 package com.fju.unitTest;
 
-import com.fju.sql.SQLQuestion;
+import com.fju.sqlData.SQLQuestion;
 
 public class SQLQuestionTest {
     public static void main(String[] args) {

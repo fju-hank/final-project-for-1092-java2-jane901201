@@ -1,4 +1,4 @@
-package com.fju.sql;
+package com.fju.sqlData;
 
 public class SQLInternet extends ISQLInetface{
 

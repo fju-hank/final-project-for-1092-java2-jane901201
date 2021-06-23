@@ -1,4 +1,4 @@
-package com.fju.sql;
+package com.fju.sqlData;
 
 import java.util.ArrayList;
 import java.sql.*;
@@ -22,6 +22,7 @@ public class SQLQuestion extends ISQLInetface{
     protected void getSQLData() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
+            //Connection connection = DriverManager.getConnection("");
             Connection connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM qa_depository");
@@ -36,8 +37,9 @@ public class SQLQuestion extends ISQLInetface{
 
             }
         }catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
-            System.out.println("false");
+            //throwables.printStackTrace();
+            System.out.println("false connect to SQL data");
+            System.out.println("Connect to local data");
         }
     }
 

@@ -7,8 +7,9 @@ package com.fju.gui;
 import javax.swing.*;
 
 public abstract class IUIInterface {
-    public abstract JPanel getUIPanel();
 
 
+
+    public abstract JPanel getUIPanel(); //得到UI
 
 }
