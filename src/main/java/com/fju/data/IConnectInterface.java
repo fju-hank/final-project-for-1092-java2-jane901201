@@ -12,6 +12,8 @@ public abstract class IConnectInterface {
     protected Statement statement;
     protected ResultSet rs;
 
+
+
     public abstract boolean connectData();
 
     public abstract void inputData(ArrayList<Integer> number, ArrayList<String> question,

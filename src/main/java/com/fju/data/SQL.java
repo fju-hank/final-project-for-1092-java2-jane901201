@@ -30,7 +30,6 @@ public class SQL extends IConnectInterface{
                           ArrayList<String> d, ArrayList<String> answer){
         try {
             while(rs.next()) {
-
                 number.add(rs.getInt("number"));
                 question.add(rs.getString("question"));
                 a.add(rs.getString("a"));

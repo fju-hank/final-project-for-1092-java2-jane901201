@@ -11,7 +11,8 @@ public class IUIStateControllerTest {
         JFrame frame = new JFrame();
         IUIInterface iuiInterface = new PlayMenu();
         UIStateController uiStateController = new UIStateController();
-        uiStateController.setUI(iuiInterface,frame);
+        uiStateController.setJFrame(frame);
+        uiStateController.setUI(iuiInterface);
         frame.setContentPane(iuiInterface.getUIPanel());
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//設定關閉可以關掉程式

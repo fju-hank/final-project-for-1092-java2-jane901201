@@ -3,33 +3,31 @@ package com.fju.data;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class Question extends IDataInterface{
+public class DataQuestion extends IDataInterface{
 
-    protected ArrayList<Integer> number = new ArrayList<>();
-    protected ArrayList<String> question = new ArrayList<>();
-    protected ArrayList<String> a = new ArrayList<>();
-    protected ArrayList<String> b = new ArrayList<>();
-    protected ArrayList<String> c = new ArrayList<>();
-    protected ArrayList<String> d = new ArrayList<>();
-    protected ArrayList<String> answer = new ArrayList<>();
 
     private IConnectInterface iConnectInterface;
 
-    public Question() {
+
+    public DataQuestion() {
         getData();
     }
 
 
     @Override
     protected void getData() {
-            iConnectInterface = new SQL();
-            if(iConnectInterface.connectData()) {
+        final boolean  succeedConnect = true;
+        iConnectInterface = new SQL();
+
+            if(succeedConnect == iConnectInterface.connectData()) {
+                iConnectInterface.inputData(number, question, a, b, c, d, answer);
+            }
+            else if(succeedConnect == iConnectInterface.connectData()){
+                iConnectInterface = new Local();
                 iConnectInterface.inputData(number, question, a, b, c, d, answer);
             }
             else {
-                iConnectInterface = new Local();
-                iConnectInterface.connectData();
-                iConnectInterface.inputData(number, question, a, b, c, d, answer);
+                System.out.println("Fail to get data");
             }
 
     }
