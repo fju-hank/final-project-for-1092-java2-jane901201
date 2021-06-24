@@ -11,8 +11,8 @@ public class GameLoopTest {
         JFrame frame = new JFrame();
         IUIInterface iuiInterface = new PlayMenu();
         GameLoop gameLoop = new GameLoop();
-        gameLoop.switchUIPanel(iuiInterface, frame);
         frame.setContentPane(iuiInterface.getUIPanel());
         frame.setVisible(true);
+
     }
 }

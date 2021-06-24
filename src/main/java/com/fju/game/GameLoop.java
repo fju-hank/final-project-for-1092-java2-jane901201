@@ -1,4 +1,7 @@
 package com.fju.game;
+
+import com.fju.gui.IUIInterface;
+import com.fju.gui.UIStateController;
 /*
 遊戲更新處
 接收IGameSystem的各種資料
@@ -6,14 +9,35 @@ package com.fju.game;
 接收IUIInterface的資料
  */
 
-import com.fju.gui.IUIInterface;
+public class GameLoop extends Thread{
 
-import javax.swing.*;
+    UIStateController m_UIStateController = new UIStateController();
 
-public class GameLoop {
+    public GameLoop() {
 
-    public void switchUIPanel(IUIInterface ui, JFrame frame) {
-        frame.setContentPane(ui.getUIPanel());
+    }
+
+
+
+    @Override
+    public void run() {
+       //檢查結束條件
+       //更新UI
+    }
+
+    public void checkTime(int time) {
+        if(time <= 0) {
+            //gameover
+        }
+    }
+
+    public void checkAnswer(String playerAnswer,String correctAnswer) {
+        if(playerAnswer != correctAnswer) {
+            //呼叫錯誤累積function
+        }
+        else {
+            //呼叫正確UI
+        }
     }
 
 }

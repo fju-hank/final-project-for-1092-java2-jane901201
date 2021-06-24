@@ -9,20 +9,33 @@ public class MainMenu extends IUIInterface{
     private JButton internet;
     private JButton qAButton;
     private JButton gameButton;
+    private JLabel sqlTest;
 
-
+    public MainMenu() {
+        uiInital();
+    }
 
     @Override
-    public JPanel getUIPanel() {
+    public void uiInital() {
 
-
-        qAButton.addActionListener(new ActionListener() {
+        qAButton.addActionListener(new ActionListener() { //按鈕聆聽功能
             @Override
             public void actionPerformed(ActionEvent e) {
                 //System.out.println("qaButton");
 
             }
         });
+    }
+
+    @Override
+    public void uiUpdate() {
+
+    }
+
+    @Override
+    public JPanel getUIPanel() {
+
+
 
         return mainMenuPanel;
     }

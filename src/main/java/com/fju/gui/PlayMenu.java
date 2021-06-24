@@ -4,32 +4,38 @@ import javax.swing.*;
 
 public class PlayMenu extends IUIInterface{
     private JPanel playMenuPanel;
-    private JButton answer1;
-    private JButton answer2;
-    private JButton answer3;
-    private JButton answer4;
-    private JLabel question;
-    private JLabel topic;
+    private JButton answer1Button;
+    private JButton answer2Button;
+    private JButton answer3Button;
+    private JButton answer4Button;
+    private JLabel questionLabel;
+    private JLabel currectQuestionLabel;
     private JLabel time;
-    private JLabel Correct;
-    private JLabel incorrect;
+    private JLabel correctLabel;
+    private JLabel incorrectLabel;
 
     public PlayMenu(JPanel playMenuPanel) {
         this.playMenuPanel = playMenuPanel;
     }
 
     public PlayMenu() {
-
-    }
-
-    public JButton getAnswer1() {
-        return answer1;
+        uiInital();
     }
 
 
+    @Override
+    public void uiInital() {
+
+    }
+
+    public void uiUpdate() {
+
+    }
 
     @Override
     public JPanel getUIPanel() {
         return playMenuPanel;
     }
+
+
 }

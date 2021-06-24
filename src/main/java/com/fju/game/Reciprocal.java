@@ -1,12 +1,12 @@
 package com.fju.game;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Reciprocal {
-    private int delay = 1000; //延遲
+    private int m_Delay = 1000; //延遲
     private int period = 1000;
     private int seconds = 5;
+    private boolean m_bEnd = false;
     private static Timer timer;
 
     public Reciprocal() {
@@ -19,10 +19,10 @@ public class Reciprocal {
                 seconds--;
                 if(seconds <= 0) {
                     timer.cancel();
-                    //呼叫結算介面
+                    m_bEnd = true;
                 }
             }
-        }, delay, period);
+        }, m_Delay, period);
     }
 }
 

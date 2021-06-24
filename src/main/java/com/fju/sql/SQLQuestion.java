@@ -1,9 +1,11 @@
-package com.fju.sqlData;
+package com.fju.sql;
+
+import com.fju.data.IDataInterface;
 
 import java.util.ArrayList;
 import java.sql.*;
 
-public class SQLQuestion extends ISQLInetface{
+public class SQLQuestion extends IDataInterface {
     protected ArrayList<Integer> number = new ArrayList<>();
     protected ArrayList<String> question = new ArrayList<>();
     protected ArrayList<String> a = new ArrayList<>();
@@ -14,12 +16,12 @@ public class SQLQuestion extends ISQLInetface{
 
 
     public SQLQuestion() {
-        getSQLData();
+        getData();
     }
 
 
     @Override
-    protected void getSQLData() {
+    protected void getData() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             //Connection connection = DriverManager.getConnection("");
@@ -44,7 +46,7 @@ public class SQLQuestion extends ISQLInetface{
     }
 
     @Override
-    public void printSQLData() {
+    public void printData() {
         for(int i = 0; i < number.size(); i++) {
             System.out.println(number.get(i) +"/" + a.get(i)+"/" + b.get(i) +"/" + c.get(i)
                     +"/" + d.get(i) + "/" + answer);

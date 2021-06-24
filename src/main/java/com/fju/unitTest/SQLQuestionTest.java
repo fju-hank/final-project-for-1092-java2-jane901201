@@ -1,10 +1,10 @@
 package com.fju.unitTest;
 
-import com.fju.sqlData.SQLQuestion;
+import com.fju.sql.SQLQuestion;
 
 public class SQLQuestionTest {
     public static void main(String[] args) {
         SQLQuestion sqlQuestion = new SQLQuestion();
-        sqlQuestion.printSQLData();
+        sqlQuestion.printData();
     }
 }

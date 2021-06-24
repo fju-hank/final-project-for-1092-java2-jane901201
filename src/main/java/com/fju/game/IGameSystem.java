@@ -2,20 +2,8 @@ package com.fju.game;
 
 public class IGameSystem {
 
-
-
-    public void checkTime(int time) {
-        if(time <= 0) {
-            //gameover
-        }
-    }
-
-    public void checkAnswer(String playerAnswer,String correctAnswer) {
-        if(playerAnswer != correctAnswer) {
-            //呼叫錯誤累積function
-        }
-        else {
-            //呼叫正確UI
-        }
+    public void gameover() {
+        //結束遊戲
+        //跳出結算視窗
     }
 }

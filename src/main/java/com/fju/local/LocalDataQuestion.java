@@ -1,4 +1,4 @@
-package com.fju.LocalData;
+package com.fju.local;
 
 public class LocalDataQuestion {
 }
