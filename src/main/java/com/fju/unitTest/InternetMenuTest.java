@@ -1,7 +1,6 @@
 package com.fju.unitTest;
 
 import com.fju.gui.InternetMenu;
-import com.fju.gui.MainMenu;
 
 import javax.swing.*;
 

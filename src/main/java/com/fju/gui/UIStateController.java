@@ -1,10 +1,12 @@
 package com.fju.gui;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class UIStateController {
-    private IUIInterface m_UI;
+
+
+
+    private PlayMenu m_UI;
 
     private JFrame frame;
 
@@ -19,5 +21,8 @@ public class UIStateController {
         frame.setVisible(false);
         frame.setVisible(true);
     }
+
+
+
 
 }

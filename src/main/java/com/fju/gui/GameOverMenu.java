@@ -2,12 +2,9 @@ package com.fju.gui;
 
 import javax.swing.*;
 
-public class InternetMenu extends IUIInterface {
-    private JPanel internetMenuPanel;
+public class GameOverMenu extends IUIInterface {
     private JButton button1;
-    private JButton button2;
-    private JScrollBar scrollBar1;
-
+    private JPanel gameOverPanel;
 
     @Override
     public void uiInital() {
@@ -21,6 +18,6 @@ public class InternetMenu extends IUIInterface {
 
     @Override
     public JPanel getUIPanel() {
-        return internetMenuPanel;
+        return gameOverPanel;
     }
 }

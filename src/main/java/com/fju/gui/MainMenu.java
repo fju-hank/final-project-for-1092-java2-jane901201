@@ -4,17 +4,18 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenu extends IUIInterface{
+public class MainMenu extends IUIInterface {
     private JPanel mainMenuPanel;
     private JButton gameButton;
     private JButton qAButton;
     private JButton internetButton;
     private JLabel connectTestLabel;
 
-    IUIInterface ui;
+    PlayMenu ui;
 
 
     public MainMenu() {
+
         uiInital();
     }
 

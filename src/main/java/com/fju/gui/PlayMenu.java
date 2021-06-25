@@ -2,11 +2,14 @@ package com.fju.gui;
 
 import com.fju.data.DataQuestion;
 import com.fju.data.IDataInterface;
+import com.fju.game.IGameSystem;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class PlayMenu extends IUIInterface{
+public class PlayMenu extends IUIInterface {
     private JPanel playMenuPanel;
     private JLabel questionLabel;
     private JButton answerAButton;
@@ -26,14 +29,16 @@ public class PlayMenu extends IUIInterface{
     private ArrayList<String> d = new ArrayList<>();
     private ArrayList<String> answer = new ArrayList<>();
     private int currentNumber = 0;
-    private String currentAnswer = "";
+    private int m_CurrectCount = 0; //正確答案數量
+    private int m_IncurrectCount = 0; //不正確答案數量
+    private int m_QuestionNumber = 0; //題數
+    private String playerAnswer = "";
+    private String correctAnswer = "";
 
-    private IDataInterface data = new DataQuestion();
+    private IDataInterface data;
+    private IGameSystem gameSystem;
+    private UIStateController uiStateController;
 
-
-    public PlayMenu(JPanel playMenuPanel) {
-        this.playMenuPanel = playMenuPanel;
-    }
 
     public PlayMenu() {
         number = data.getNumber();
@@ -43,6 +48,7 @@ public class PlayMenu extends IUIInterface{
         c = data.getC();
         d = data.getD();
         answer = data.getAnswer();
+        currentNumber = 0;
         uiInital();
     }
 
@@ -50,7 +56,38 @@ public class PlayMenu extends IUIInterface{
 
     @Override
     public void uiInital() {
-        currentNumber = 0;
+
+        answerAButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerAnswer = "A";
+            }
+        });
+        answerBButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerAnswer = "B";
+            }
+        });
+
+        answerCButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerAnswer = "C";
+            }
+        });
+
+        answerDButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                playerAnswer = "D";
+            }
+        });
+
+        data = new DataQuestion();
+        uiStateController = new UIStateController();
+        gameSystem = new IGameSystem(uiStateController, this);
+
         uiUpdate();
     }
 
@@ -61,7 +98,10 @@ public class PlayMenu extends IUIInterface{
         answerBButton.setText(b.get(currentNumber));
         answerCButton.setText(c.get(currentNumber));
         answerDButton.setText(d.get(currentNumber));
-        currentAnswer = answer.get(currentNumber);
+        correctAnswer = answer.get(currentNumber);
+
+
+
     }
 
     private String intSwtichToString(ArrayList<Integer> number, int i) {
@@ -76,10 +116,34 @@ public class PlayMenu extends IUIInterface{
         return s;
     }
 
+    public void addQuestionNumber() {
+        m_QuestionNumber++;
+    }
+
+    public void addCurrectCount() {
+        m_CurrectCount++;
+    }
+
+    public void addIncurrentCount() {
+        m_IncurrectCount++;
+    }
+
+    private void checkAnswer(String playerAnswer, String correctAnswer) {
+        if(playerAnswer.equals(correctAnswer)) {
+            addCurrectCount();
+        }
+        else {
+            addIncurrentCount();
+        }
+    }
+
     @Override
     public JPanel getUIPanel() {
         return playMenuPanel;
     }
+
+
+
 
 
 }

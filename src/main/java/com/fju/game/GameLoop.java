@@ -1,7 +1,5 @@
 package com.fju.game;
 
-import com.fju.gui.IUIInterface;
-import com.fju.gui.UIStateController;
 /*
 遊戲更新處
 接收IGameSystem的各種資料
@@ -9,35 +7,42 @@ import com.fju.gui.UIStateController;
 接收IUIInterface的資料
  */
 
+import com.fju.gui.IUIInterface;
+import com.fju.gui.PlayMenu;
+
 public class GameLoop extends Thread{
 
-    UIStateController m_UIStateController = new UIStateController();
+    IGameSystem gameSystem;
+    IUIInterface m_PlayMenu;
+    private boolean m_bStop = false;
 
-    public GameLoop() {
 
+    public GameLoop(IGameSystem gameSystem, IUIInterface playMenu) {
+        setGameSystem(gameSystem);
+        setM_PlayMenu(playMenu);
     }
 
 
 
     @Override
     public void run() {
-       //檢查結束條件
-       //更新UI
-    }
-
-    public void checkTime(int time) {
-        if(time <= 0) {
-            //gameover
+        while (!m_bStop) {
+            //確認時間
+            //確認答題數
+            System.out.println("GameLoop is used");
+            //m_PlayMenu.uiUpdate();
         }
     }
 
-    public void checkAnswer(String playerAnswer,String correctAnswer) {
-        if(playerAnswer != correctAnswer) {
-            //呼叫錯誤累積function
-        }
-        else {
-            //呼叫正確UI
-        }
+    public void stopLoop() {
+        m_bStop = true;
     }
 
+    public void setM_PlayMenu(IUIInterface m_PlayMenu) {
+        this.m_PlayMenu = m_PlayMenu;
+    }
+
+    public void setGameSystem(IGameSystem gameSystem) {
+        this.gameSystem = gameSystem;
+    }
 }
