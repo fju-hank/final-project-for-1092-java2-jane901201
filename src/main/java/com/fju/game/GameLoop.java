@@ -8,7 +8,6 @@ package com.fju.game;
  */
 
 import com.fju.gui.IUIInterface;
-import com.fju.gui.PlayMenu;
 
 public class GameLoop extends Thread{
 
@@ -27,10 +26,10 @@ public class GameLoop extends Thread{
     @Override
     public void run() {
         while (!m_bStop) {
-            //確認時間
-            //確認答題數
-            System.out.println("GameLoop is used");
-            //m_PlayMenu.uiUpdate();
+            gameSystem.checkQuestionCount();
+            gameSystem.checkTime();
+            m_PlayMenu.uiUpdate();
+            //System.out.println("GameLoop is used");
         }
     }
 

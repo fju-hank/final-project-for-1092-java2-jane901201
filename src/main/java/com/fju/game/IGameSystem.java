@@ -1,10 +1,9 @@
 package com.fju.game;
 
+import com.fju.gui.GameOverMenu;
 import com.fju.gui.IUIInterface;
-import com.fju.gui.PlayMenu;
 import com.fju.gui.UIStateController;
 
-import java.util.ArrayList;
 
 public class IGameSystem {
 
@@ -15,25 +14,28 @@ public class IGameSystem {
 
 
     public IGameSystem(UIStateController uiStateController, IUIInterface playMenu) {
-        setPlayMenu(playMenu);
-        m_GameLoop = new GameLoop(this, this.playMenu);
+        m_GameLoop = new GameLoop(this, playMenu);
         m_Reciprocal = new Reciprocal();
         setM_UIStateController(uiStateController);
+        setPlayMenu(playMenu);
+        m_GameLoop.start();
     }
 
-    public void gameover() {
+    public void gameOver() {
         m_GameLoop.stopLoop();
-        //跳出結算視窗
+        m_UIStateController.setUI(new GameOverMenu());
     }
 
-    public boolean checkTime() {
+    public void checkTime() {
+        if(m_Reciprocal.getTimeCheck()) {
+            gameOver();
+        }
 
-        return m_Reciprocal.getTimeCheck();
     }
 
-    public void checkQuestionCount(ArrayList<Integer> number, int total) {
-        if(number.size() == total) {
-            //GameOver
+    public void checkQuestionCount() {
+        if(playMenu.checkCurrentQuesiton()) {
+            gameOver();
         }
     }
 
@@ -43,5 +45,9 @@ public class IGameSystem {
 
     public void setPlayMenu(IUIInterface playMenu) {
         this.playMenu = playMenu;
+    }
+
+    public int getTime() {
+        return m_Reciprocal.getTime();
     }
 }

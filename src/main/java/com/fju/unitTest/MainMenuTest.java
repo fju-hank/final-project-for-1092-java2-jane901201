@@ -12,18 +12,16 @@ public class MainMenuTest {
         IUIInterface mainMenu = new MainMenu();
         UIStateController uiStateController = new UIStateController();
 
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                JFrame frame = new JFrame();
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame();
 
-                uiStateController.setJFrame(frame);
-                mainMenu.setUIStateController(uiStateController);
+            uiStateController.setJFrame(frame);
+            mainMenu.setUIStateController(uiStateController);
 
-                frame.setContentPane(mainMenu.getUIPanel());
-                frame.setSize(300,500);
-                frame.setVisible(true);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//設定關閉可以關掉程式
-            }
+            frame.setContentPane(mainMenu.getUIPanel());
+            frame.setSize(300,500);
+            frame.setVisible(true);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//設定關閉可以關掉程式
         });
 
     }

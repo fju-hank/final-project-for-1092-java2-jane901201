@@ -4,9 +4,8 @@ import javax.swing.*;
 
 public class InternetMenu extends IUIInterface {
     private JPanel internetMenuPanel;
+    private JButton mainMenuButton;
     private JButton button1;
-    private JButton button2;
-    private JScrollBar scrollBar1;
 
 
     @Override

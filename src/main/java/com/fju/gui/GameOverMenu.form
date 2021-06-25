@@ -8,46 +8,41 @@
     <properties/>
     <border type="none"/>
     <children>
-      <vspacer id="8ce56">
-        <constraints>
-          <grid row="5" column="1" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <vspacer id="7c45c">
         <constraints>
-          <grid row="3" column="1" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="1" row-span="4" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
-      <component id="3b9e5" class="javax.swing.JLabel">
+      <component id="3b9e5" class="javax.swing.JLabel" binding="gameOverLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="GameOver"/>
         </properties>
       </component>
-      <component id="9529d" class="javax.swing.JLabel">
+      <component id="9529d" class="javax.swing.JLabel" binding="correctLabel">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="對的題數"/>
         </properties>
       </component>
-      <component id="8827b" class="javax.swing.JLabel">
+      <component id="8827b" class="javax.swing.JLabel" binding="incorrectLabel">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="錯的題目"/>
         </properties>
       </component>
-      <component id="8cb7c" class="javax.swing.JLabel">
+      <component id="8cb7c" class="javax.swing.JLabel" binding="totalQuestionLabel">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Label"/>
+          <text value="總回答題數"/>
         </properties>
       </component>
       <hspacer id="54334">
@@ -55,12 +50,20 @@
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <component id="c7346" class="javax.swing.JButton" binding="button1" default-binding="true">
+      <component id="c7346" class="javax.swing.JButton" binding="mainMenuButton">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="返回遊戲畫面"/>
+        </properties>
+      </component>
+      <component id="536a1" class="javax.swing.JLabel" binding="timeLabel">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="總花費時間"/>
         </properties>
       </component>
     </children>

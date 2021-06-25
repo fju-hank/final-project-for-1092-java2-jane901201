@@ -8,7 +8,11 @@ import javax.swing.*;
 
 public abstract class IUIInterface {
 
-    UIStateController uiStateController;
+    public UIStateController uiStateController;
+
+    public IUIInterface() {
+
+    }
 
     public abstract void uiInital();
 
@@ -18,6 +22,10 @@ public abstract class IUIInterface {
 
     public void setUIStateController(UIStateController uiStateController) {
         this.uiStateController = uiStateController;
+    }
+
+    public boolean checkCurrentQuesiton() {
+        return false;
     }
 
 }
