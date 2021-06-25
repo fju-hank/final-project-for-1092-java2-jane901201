@@ -1,29 +1,34 @@
 package com.fju.game;
 
+import com.fju.gui.GameOverMenu;
 import com.fju.gui.IUIInterface;
-import com.fju.gui.MainMenu;
+import com.fju.gui.UIStateController;
 
 
-public class IGameSystem extends Thread{
+public class IGameSystem {
 
+    UIStateController m_UIStateController;
+    GameLoop m_GameLoop;
+    Reciprocal m_Reciprocal;
     IUIInterface playMenu;
-    Reciprocal m_Rreciprocal;
-
-    private boolean m_bStop = false;
 
 
-    public IGameSystem(IUIInterface playMenu) {
-        m_Rreciprocal = new Reciprocal();
-        this.playMenu = playMenu;
-        start();
+    public IGameSystem(UIStateController uiStateController, IUIInterface playMenu) {
+        m_GameLoop = new GameLoop(this, playMenu);
+        m_Reciprocal = new Reciprocal();
+        setM_UIStateController(uiStateController);
+        setPlayMenu(playMenu);
+        m_GameLoop.start();
     }
 
     public void gameOver() {
-        stopLoop();
+        m_GameLoop.stopLoop();
+        m_UIStateController.setUI(new GameOverMenu());
     }
 
     public void checkTime() {
-        if(m_Rreciprocal.getTimeCheck()) {
+        if(m_Reciprocal.getTimeCheck()) {
+            gameOver();
         }
 
     }
@@ -34,31 +39,15 @@ public class IGameSystem extends Thread{
         }
     }
 
+    public void setM_UIStateController(UIStateController uiStateController) {
+        this.m_UIStateController = uiStateController;
+    }
 
-
-    public void uiUpdate() {
-        playMenu.uiUpdate();
+    public void setPlayMenu(IUIInterface playMenu) {
+        this.playMenu = playMenu;
     }
 
     public int getTime() {
-        return m_Rreciprocal.getTime();
+        return m_Reciprocal.getTime();
     }
-
-
-
-
-    @Override
-    public void run() {
-        while (!m_bStop) {
-            checkQuestionCount();
-            checkTime();
-            uiUpdate();
-            //System.out.println("GameLoop is used");
-        }
-    }
-
-    public void stopLoop() {
-        m_bStop = true;
-    }
-
 }

@@ -1,22 +1,21 @@
 package com.fju.unitTest;
 
-import com.fju.game.GameLoop;
-import com.fju.game.IGameSystem;
 import com.fju.gui.IUIInterface;
 import com.fju.gui.PlayMenu;
 import com.fju.gui.UIStateController;
 
 import javax.swing.*;
 
-public class GameLoopTest {
+public class IUIStateControllerTest {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        IUIInterface playMenu = new PlayMenu();
+        IUIInterface iuiInterface = new PlayMenu();
         UIStateController uiStateController = new UIStateController();
-        IGameSystem gameSystem = new IGameSystem(uiStateController, playMenu);
-        GameLoop gameLoop = new GameLoop(gameSystem, playMenu);
-        frame.setContentPane(playMenu.getUIPanel());
+        uiStateController.setJFrame(frame);
+        uiStateController.setUI(iuiInterface);
+        frame.setContentPane(iuiInterface.getUIPanel());
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//設定關閉可以關掉程式
 
     }
 }

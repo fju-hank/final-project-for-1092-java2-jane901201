@@ -5,7 +5,7 @@ import javax.swing.*;
 public class InternetMenu extends IUIInterface {
     private JPanel internetMenuPanel;
     private JButton mainMenuButton;
-    private JButton internetButton;
+    private JButton button1;
 
 
     @Override
