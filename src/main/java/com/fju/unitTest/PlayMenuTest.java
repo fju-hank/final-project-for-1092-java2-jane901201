@@ -16,8 +16,6 @@ public class PlayMenuTest {
 
         JFrame frame = new JFrame();
 
-        playMenu.uiStateController.setJFrame(frame);
-
         frame.setContentPane(playMenu.getUIPanel());
         frame.setSize(300,500);
 

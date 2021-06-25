@@ -13,7 +13,6 @@ public class PlayMenu extends IUIInterface {
 
     private IDataInterface data;
     private IGameSystem gameSystem;
-
     private JPanel playMenuPanel;
     private JLabel questionLabel;
     private JButton answerAButton;
@@ -43,7 +42,7 @@ public class PlayMenu extends IUIInterface {
 
     public PlayMenu() {
         uiInital();
-        gameSystem = new IGameSystem(uiStateController, this);
+        gameSystem = new IGameSystem(this);
         number = data.getNumber().size(); //這邊的宣告都走問題
         question = data.getQuestion();
         a = data.getA();
@@ -81,8 +80,6 @@ public class PlayMenu extends IUIInterface {
         });
 
         data = new DataQuestion();
-        uiStateController = new UIStateController();
-        gameSystem = new IGameSystem(uiStateController, this);
 
     }
 
@@ -143,11 +140,12 @@ public class PlayMenu extends IUIInterface {
 
     @Override
     public boolean checkCurrentQuesiton() {
+        //if(arrayListNumber() == number) {
+            //gameSystem.gameOver();
+        //}
         //System.out.println(currentNumber == number);
             return arrayListNumber() == number;
     }
 
-    public void setJFrame(JFrame frame) {
-        uiStateController.setJFrame(frame);
-    }
+
 }

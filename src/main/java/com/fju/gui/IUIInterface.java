@@ -6,12 +6,10 @@ package com.fju.gui;
 
 import javax.swing.*;
 
-public abstract class IUIInterface {
+public abstract class IUIInterface extends IScreenSystem{
 
-    public UIStateController uiStateController;
 
     public IUIInterface() {
-
     }
 
     public abstract void uiInital();
@@ -20,12 +18,15 @@ public abstract class IUIInterface {
 
     public abstract JPanel getUIPanel(); //得到UI
 
-    public void setUIStateController(UIStateController uiStateController) {
-        this.uiStateController = uiStateController;
+
+    protected void switchUI(IUIInterface ui) {
+        uiStateController.setUI(ui, frame);
     }
 
     public boolean checkCurrentQuesiton() {
         return false;
     }
+
+
 
 }
