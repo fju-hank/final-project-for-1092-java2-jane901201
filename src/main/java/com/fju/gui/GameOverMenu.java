@@ -1,8 +1,13 @@
 package com.fju.gui;
 
+import com.fju.data.IDataInterface;
+
 import javax.swing.*;
 
 public class GameOverMenu extends IUIInterface {
+
+    private IDataInterface m_playData;
+
     private JButton mainMenuButton;
     private JPanel gameOverPanel;
     private JLabel totalQuestionLabel;
@@ -10,6 +15,8 @@ public class GameOverMenu extends IUIInterface {
     private JLabel gameOverLabel;
     private JLabel correctLabel;
     private JLabel incorrectLabel;
+
+
 
     public GameOverMenu() {
         uiInital();
@@ -33,5 +40,10 @@ public class GameOverMenu extends IUIInterface {
     @Override
     public JPanel getUIPanel() {
         return gameOverPanel;
+    }
+
+    @Override
+    public void getData() {
+
     }
 }

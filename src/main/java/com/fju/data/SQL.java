@@ -10,8 +10,8 @@ public class SQL extends IConnectInterface{
     public boolean connectData() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            //Connection connection = DriverManager.getConnection("");
-            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
+            Connection connection = DriverManager.getConnection("");
+            //connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
             statement = connection.createStatement();
             rs = statement.executeQuery("SELECT * FROM qa_depository");
             return true;

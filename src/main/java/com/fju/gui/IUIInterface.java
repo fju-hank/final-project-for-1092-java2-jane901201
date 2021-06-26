@@ -4,10 +4,15 @@ package com.fju.gui;
 有重複的function就用這個
  */
 
+import com.fju.data.IDataInterface;
+
 import javax.swing.*;
+import java.util.ArrayList;
+
 public abstract class IUIInterface{
 
     protected UIStateController uiStateController;
+    protected IDataInterface data;
     protected static final JFrame frame = new JFrame();
 
     public IUIInterface() {
@@ -36,5 +41,13 @@ public abstract class IUIInterface{
     public boolean checkCurrentQuesiton() {
         return false;
     }
+
+
+    public ArrayList<Integer> setPlayData() {
+        return null;
+    }
+
+    public abstract void getData();
+
 
 }

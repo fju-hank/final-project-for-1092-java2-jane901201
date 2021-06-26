@@ -7,8 +7,9 @@ public class IDataInterfaceTest {
     IDataInterface iDataInterface = new DataQuestion();
 
     public static void main(String[] args) {
-        IDataInterface iDataInterface = new DataQuestion();
-
-        iDataInterface.printData();
+        //IDataInterface iDataInterface = new DataQuestion();
+        IDataInterface localData = new DataQuestion();
+        //iDataInterface.printData();
+        localData.printData();
     }
 }

@@ -1,5 +1,8 @@
 package com.fju.data;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +15,9 @@ public abstract class IConnectInterface {
     protected Statement statement;
     protected ResultSet rs;
 
-
+    protected FileInputStream fis;
+    protected InputStreamReader isr;
+    protected BufferedReader br;
 
     public abstract boolean connectData();
 

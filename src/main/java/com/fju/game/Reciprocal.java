@@ -4,6 +4,7 @@ import java.util.TimerTask;
 
 public class Reciprocal {
     private int m_seconds = 60;
+    private int m_UseSeconds = 0;
     private boolean m_bEnd = false;
     private static Timer timer;
 
@@ -18,6 +19,7 @@ public class Reciprocal {
             public void run() {
                 //System.out.println(m_seconds);
                 m_seconds--;
+                m_UseSeconds++;
                 if(m_seconds <= 0) {
                     timer.cancel();
                     m_bEnd = true;
@@ -31,8 +33,8 @@ public class Reciprocal {
         return m_bEnd;
     }
 
-    public int getTime() {
-        return m_seconds;
+    public int getUseTime() {
+        return m_UseSeconds;
     }
 }
 

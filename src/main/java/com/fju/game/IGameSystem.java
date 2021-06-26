@@ -1,10 +1,12 @@
 package com.fju.game;
 
+import com.fju.data.DataPlayRecord;
+import com.fju.data.IDataInterface;
 import com.fju.gui.GameOverMenu;
 import com.fju.gui.IUIInterface;
 import com.fju.gui.UIStateController;
 
-import javax.swing.*;
+import java.util.ArrayList;
 
 
 public class IGameSystem {
@@ -13,6 +15,7 @@ public class IGameSystem {
     GameLoop m_GameLoop;
     Reciprocal m_Reciprocal;
     IUIInterface playMenu;
+    IDataInterface playRecord = new DataPlayRecord();
 
 
     public IGameSystem(UIStateController uiStateController, IUIInterface playMenu) {
@@ -24,9 +27,20 @@ public class IGameSystem {
     }
 
     public void gameOver() {
+        playDataStore();
         m_GameLoop.stopLoop();
-        m_UIStateController.setUI(new GameOverMenu());
-        //playMenu.uiRelease();
+        IUIInterface gameOverMenu = new GameOverMenu();
+
+        m_UIStateController.setUI(gameOverMenu);
+    }
+
+    private void playDataStore() {
+        ArrayList<Integer> tem = new ArrayList<>();
+        tem = playMenu.setPlayData();
+        playRecord.setTotalTime(getTime());
+        playRecord.setTotolQuestion(tem.get(0));
+        playRecord.setCorrectCount(tem.get(1));
+        playRecord.setIncorrectCount(tem.get(2));
     }
 
     public void checkTime() {
@@ -51,6 +65,6 @@ public class IGameSystem {
     }
 
     public int getTime() {
-        return m_Reciprocal.getTime();
+        return m_Reciprocal.getUseTime();
     }
 }

@@ -32,7 +32,7 @@ public class PlayMenu extends IUIInterface {
     private final ArrayList<String> c;
     private final ArrayList<String> d;
     private final ArrayList<String> answer;
-    private int currentNumber; //當前題數
+    private int m_CurrentNumber; //當前題數
     private int m_CorrectCount = 0; //正確答案數量
     private int m_IncorrectCount = 0; //不正確答案數量
     private String playerAnswer = ""; //玩家答案
@@ -51,7 +51,7 @@ public class PlayMenu extends IUIInterface {
         c = data.getC();
         d = data.getD();
         answer = data.getAnswer();
-        currentNumber = 1;
+        m_CurrentNumber = 1;
 
         uiUpdate();
 
@@ -88,7 +88,7 @@ public class PlayMenu extends IUIInterface {
     @Override
     public void uiUpdate() {
        try {
-           numberLabel.setText(intSwitchToString(currentNumber));
+           numberLabel.setText(intSwitchToString(m_CurrentNumber));
            questionLabel.setText(question.get(arrayListNumber()));
            correctLabel.setText("O:" + intSwitchToString(m_CorrectCount));
            incorrectLabel.setText("X:" + intSwitchToString(m_IncorrectCount));
@@ -122,7 +122,7 @@ public class PlayMenu extends IUIInterface {
     }
 
     private int arrayListNumber() {
-        return currentNumber - 1;
+        return m_CurrentNumber - 1;
     }
 
     private void checkAnswer() {
@@ -135,7 +135,7 @@ public class PlayMenu extends IUIInterface {
         else {
             addIncurrentCount();
         }
-        currentNumber++;
+        m_CurrentNumber++;
     }
 
     @Override
@@ -147,6 +147,22 @@ public class PlayMenu extends IUIInterface {
     public boolean checkCurrentQuesiton() {
         //System.out.println(currentNumber == number);
             return arrayListNumber() == number;
+    }
+
+    @Override
+    public ArrayList<Integer> setPlayData() {
+        ArrayList<Integer> playDataArray = new ArrayList<Integer>();
+
+        playDataArray.add(m_CurrentNumber);
+        playDataArray.add(m_CorrectCount);
+        playDataArray.add(m_IncorrectCount);
+
+        return playDataArray;
+    }
+
+    @Override
+    public void getData() {
+
     }
 
     public void setJFrame(JFrame frame) {

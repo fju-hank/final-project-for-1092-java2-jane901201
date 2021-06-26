@@ -10,12 +10,15 @@ public class DataQuestion extends IDataInterface{
 
     @Override
     protected void getData() {
-        IConnectInterface iConnectInterface = new SQL();
+        IConnectInterface iConnectInterface;
+        IConnectInterface sqlConnect = new SQL();
+        IConnectInterface localConnect = new Local();
 
-            if(iConnectInterface.connectData()) {
+            if(sqlConnect.connectData()) {
+                iConnectInterface = new SQL();
                 iConnectInterface.inputData(number, question, a, b, c, d, answer);
             }
-            else if(iConnectInterface.connectData()){
+            else if(localConnect.connectData()){
                 iConnectInterface = new Local();
                 iConnectInterface.inputData(number, question, a, b, c, d, answer);
             }
@@ -28,7 +31,7 @@ public class DataQuestion extends IDataInterface{
     @Override
     public void printData() {
         for(int i = 0; i < number.size(); i++) {
-            System.out.println(number.get(i) +"/" + a.get(i)+"/" + b.get(i) +"/" + c.get(i)
+            System.out.println(number.get(i) +"/" + question.get(i) + "/" + a.get(i)+"/" + b.get(i) +"/" + c.get(i)
                     +"/" + d.get(i) + "/" + answer);
         }
     }
