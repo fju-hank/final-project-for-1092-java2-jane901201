@@ -5,13 +5,15 @@ package com.fju.gui;
  */
 
 import javax.swing.*;
+public abstract class IUIInterface{
 
-public abstract class IUIInterface {
-
-    public UIStateController uiStateController;
+    protected UIStateController uiStateController;
+    protected JFrame frame;
 
     public IUIInterface() {
-
+        frame = new JFrame();
+        uiStateController = new UIStateController();
+        uiStateController.setJFrame(frame);
     }
 
     public abstract void uiInital();
@@ -20,8 +22,12 @@ public abstract class IUIInterface {
 
     public abstract JPanel getUIPanel(); //得到UI
 
-    public void setUIStateController(UIStateController uiStateController) {
-        this.uiStateController = uiStateController;
+    public void setJFrame(JFrame frame) {
+        this.frame = frame;
+    }
+
+    public JFrame getFrame() {
+        return frame;
     }
 
     public boolean checkCurrentQuesiton() {

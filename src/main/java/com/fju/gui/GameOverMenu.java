@@ -11,6 +11,10 @@ public class GameOverMenu extends IUIInterface {
     private JLabel correctLabel;
     private JLabel incorrectLabel;
 
+    public GameOverMenu() {
+
+    }
+
     @Override
     public void uiInital() {
 

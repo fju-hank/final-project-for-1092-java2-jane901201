@@ -1,7 +1,6 @@
 package com.fju.unitTest;
 
 import com.fju.gui.IUIInterface;
-import com.fju.gui.PlayMenu;
 import com.fju.gui.MainMenu;
 import com.fju.gui.UIStateController;
 
@@ -16,7 +15,7 @@ public class MainMenuTest {
             JFrame frame = new JFrame();
 
             uiStateController.setJFrame(frame);
-            mainMenu.setUIStateController(uiStateController);
+            mainMenu.setJFrame(frame);
 
             frame.setContentPane(mainMenu.getUIPanel());
             frame.setSize(300,500);
