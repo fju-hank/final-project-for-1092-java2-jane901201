@@ -3,7 +3,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Reciprocal {
-    private int m_seconds = 60;
+    private int m_seconds = 5;
     private int m_UseSeconds = 0;
     private boolean m_bEnd = false;
     private static Timer timer;
@@ -18,8 +18,8 @@ public class Reciprocal {
 
             public void run() {
                 //System.out.println(m_seconds);
-                m_seconds--;
-                m_UseSeconds++;
+                m_seconds -= 1;
+                m_UseSeconds +=1;
                 if(m_seconds <= 0) {
                     timer.cancel();
                     m_bEnd = true;
@@ -35,6 +35,10 @@ public class Reciprocal {
 
     public int getUseTime() {
         return m_UseSeconds;
+    }
+
+    public int getCurrentTme() {
+        return m_seconds;
     }
 }
 

@@ -24,4 +24,6 @@ public abstract class IConnectInterface {
     public abstract void inputData(ArrayList<Integer> number, ArrayList<String> question,
                                    ArrayList<String> a, ArrayList<String> b, ArrayList<String> c,
                                    ArrayList<String> d, ArrayList<String> answer);
+
+    public abstract void inputData(String internetName, String url);
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public abstract class IUIInterface{
 
     protected UIStateController uiStateController;
-    protected IDataInterface data;
+    protected IDataInterface m_Data;
     protected static final JFrame frame = new JFrame();
 
     public IUIInterface() {
@@ -47,7 +47,7 @@ public abstract class IUIInterface{
         return null;
     }
 
-    public abstract void getData();
+    public abstract void setM_Data(IDataInterface m_Data);
 
 
 }

@@ -6,8 +6,6 @@ import javax.swing.*;
 
 public class GameOverMenu extends IUIInterface {
 
-    private IDataInterface m_playData;
-
     private JButton mainMenuButton;
     private JPanel gameOverPanel;
     private JLabel totalQuestionLabel;
@@ -25,15 +23,18 @@ public class GameOverMenu extends IUIInterface {
     @Override
     public void uiInital() {
         mainMenuButton.addActionListener(e -> uiStateController.setUI(new MainMenu()));
-
-        totalQuestionLabel.setText("總題數3提");
-        timeLabel.setText("60秒");
-        correctLabel.setText("100");
-        incorrectLabel.setText("80");
     }
 
     @Override
     public void uiUpdate() {
+        totalQuestionLabel.setText("總回答題數:"
+                + intSwitchtoString(m_Data.getTotolQuestion()));
+        correctLabel.setText("對的題數"
+                + intSwitchtoString(m_Data.getCorrectCount()));
+        incorrectLabel.setText("錯的題數"
+                + intSwitchtoString(m_Data.getIncorrectCount()));
+        timeLabel.setText("總花費時間"
+                + intSwitchtoString(m_Data.getTotalTime()));
 
     }
 
@@ -43,7 +44,12 @@ public class GameOverMenu extends IUIInterface {
     }
 
     @Override
-    public void getData() {
+    public void setM_Data(IDataInterface m_Data) {
+        this.m_Data = m_Data;
 
+    }
+
+    public String intSwitchtoString(int n) {
+       return Integer.toString(n);
     }
 }

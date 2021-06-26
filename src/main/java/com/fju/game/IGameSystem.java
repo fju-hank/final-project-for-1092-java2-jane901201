@@ -30,15 +30,15 @@ public class IGameSystem {
         playDataStore();
         m_GameLoop.stopLoop();
         IUIInterface gameOverMenu = new GameOverMenu();
-
+        gameOverMenu.setM_Data(playRecord);
+        gameOverMenu.uiUpdate();
         m_UIStateController.setUI(gameOverMenu);
     }
 
     private void playDataStore() {
-        ArrayList<Integer> tem = new ArrayList<>();
-        tem = playMenu.setPlayData();
-        playRecord.setTotalTime(getTime());
-        playRecord.setTotolQuestion(tem.get(0));
+        ArrayList<Integer> tem = playMenu.setPlayData();
+        playRecord.setTotalTime(getUseTime());
+        playRecord.setTotolQuestion(tem.get(0) - 1 >= 0 ? tem.get(1) : 0);
         playRecord.setCorrectCount(tem.get(1));
         playRecord.setIncorrectCount(tem.get(2));
     }
@@ -64,7 +64,11 @@ public class IGameSystem {
         this.playMenu = playMenu;
     }
 
-    public int getTime() {
+    public int getUseTime() {
         return m_Reciprocal.getUseTime();
+    }
+
+    public int getcurrentTime() {
+        return m_Reciprocal.getCurrentTme();
     }
 }

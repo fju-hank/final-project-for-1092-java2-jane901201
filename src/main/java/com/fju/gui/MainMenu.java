@@ -1,5 +1,7 @@
 package com.fju.gui;
 
+import com.fju.data.IDataInterface;
+
 import javax.swing.*;
 
 public class MainMenu extends IUIInterface {
@@ -43,5 +45,10 @@ public class MainMenu extends IUIInterface {
 
 
         return mainMenuPanel;
+    }
+
+    @Override
+    public void setM_Data(IDataInterface m_Data) {
+
     }
 }

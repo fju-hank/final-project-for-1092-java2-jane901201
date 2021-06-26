@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class PlayMenu extends IUIInterface {
 
-    private IDataInterface data;
     private IGameSystem gameSystem;
 
     private JPanel playMenuPanel;
@@ -44,13 +43,13 @@ public class PlayMenu extends IUIInterface {
     public PlayMenu() {
         uiInital();
         gameSystem = new IGameSystem(uiStateController, this);
-        number = data.getNumber().size(); //這邊的宣告都走問題
-        question = data.getQuestion();
-        a = data.getA();
-        b = data.getB();
-        c = data.getC();
-        d = data.getD();
-        answer = data.getAnswer();
+        number = m_Data.getNumber().size(); //這邊的宣告都走問題
+        question = m_Data.getQuestion();
+        a = m_Data.getA();
+        b = m_Data.getB();
+        c = m_Data.getC();
+        d = m_Data.getD();
+        answer = m_Data.getAnswer();
         m_CurrentNumber = 1;
 
         uiUpdate();
@@ -80,7 +79,7 @@ public class PlayMenu extends IUIInterface {
             checkAnswer();
         });
 
-        data = new DataQuestion();
+        m_Data = new DataQuestion();
         gameSystem = new IGameSystem(uiStateController, this);
 
     }
@@ -92,7 +91,7 @@ public class PlayMenu extends IUIInterface {
            questionLabel.setText(question.get(arrayListNumber()));
            correctLabel.setText("O:" + intSwitchToString(m_CorrectCount));
            incorrectLabel.setText("X:" + intSwitchToString(m_IncorrectCount));
-           timeLabel.setText(intSwitchToString(gameSystem.getTime()));
+           timeLabel.setText(intSwitchToString(gameSystem.getcurrentTime()));
            answerAButton.setText(a.get(arrayListNumber()));
            answerBButton.setText(b.get(arrayListNumber()));
            answerCButton.setText(c.get(arrayListNumber()));
@@ -126,9 +125,9 @@ public class PlayMenu extends IUIInterface {
     }
 
     private void checkAnswer() {
-        System.out.println(playerAnswer);
-        System.out.println(correctAnswer);
-        System.out.println(playerAnswer.equals(correctAnswer));
+//        System.out.println(playerAnswer);
+//        System.out.println(correctAnswer);
+//        System.out.println(playerAnswer.equals(correctAnswer));
         if(playerAnswer.equals(correctAnswer) && arrayListNumber() < number) {
             addCurrectCount();
         }
@@ -161,7 +160,7 @@ public class PlayMenu extends IUIInterface {
     }
 
     @Override
-    public void getData() {
+    public void setM_Data(IDataInterface m_Data) {
 
     }
 
