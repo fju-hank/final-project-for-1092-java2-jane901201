@@ -16,7 +16,6 @@ public class GameOverMenuTest {
             JFrame frame = new JFrame();
 
             uiStateController.setJFrame(frame);
-            gameOverMenu.setUIStateController(uiStateController);
 
             frame.setContentPane(gameOverMenu.getUIPanel());
             frame.setSize(300,500);

@@ -4,6 +4,8 @@ import com.fju.gui.GameOverMenu;
 import com.fju.gui.IUIInterface;
 import com.fju.gui.UIStateController;
 
+import javax.swing.*;
+
 
 public class IGameSystem {
 
@@ -24,6 +26,7 @@ public class IGameSystem {
     public void gameOver() {
         m_GameLoop.stopLoop();
         m_UIStateController.setUI(new GameOverMenu());
+        //playMenu.uiRelease();
     }
 
     public void checkTime() {

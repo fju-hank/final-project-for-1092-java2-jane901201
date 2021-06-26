@@ -9,7 +9,6 @@ import javax.swing.*;
 public class IScreenSystem {
 
     JFrame frame;
-    UIStateController uiStateController;
     IUIInterface ui;
 
     public IScreenSystem() {
@@ -19,9 +18,7 @@ public class IScreenSystem {
 
     private void inital() {
         ui = new MainMenu();
-        uiStateController = new UIStateController();
-        uiStateController.setJFrame(frame);
-        ui.setJFrame(frame); //會想辦法改掉
+        frame = ui.getFrame();
         frame.setContentPane(ui.getUIPanel());
         frame.setSize(300,500);
         frame.setVisible(true);

@@ -81,7 +81,6 @@ public class PlayMenu extends IUIInterface {
         });
 
         data = new DataQuestion();
-        uiStateController = new UIStateController();
         gameSystem = new IGameSystem(uiStateController, this);
 
     }

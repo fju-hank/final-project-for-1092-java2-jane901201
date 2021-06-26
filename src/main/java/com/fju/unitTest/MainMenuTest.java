@@ -15,7 +15,6 @@ public class MainMenuTest {
             JFrame frame = new JFrame();
 
             uiStateController.setJFrame(frame);
-            mainMenu.setJFrame(frame);
 
             frame.setContentPane(mainMenu.getUIPanel());
             frame.setSize(300,500);

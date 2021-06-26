@@ -4,10 +4,6 @@ import javax.swing.*;
 
 public class UIStateController {
 
-
-
-    private PlayMenu m_UI;
-
     private JFrame frame; //mainMenu不這樣寫會出問題，因為別的IUIInterface不會有frame的設定
 
     public void setJFrame(JFrame frame) {
@@ -20,6 +16,7 @@ public class UIStateController {
     public void setUI(IUIInterface ui) {
             frame.setContentPane(ui.getUIPanel());
             frame.setVisible(false);
+            frame.setSize(300,500);
             frame.setVisible(true);
     }
 

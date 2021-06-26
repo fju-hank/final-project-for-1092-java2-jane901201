@@ -1,8 +1,6 @@
 package com.fju.gui;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class MainMenu extends IUIInterface {
     private JPanel mainMenuPanel;
@@ -10,8 +8,6 @@ public class MainMenu extends IUIInterface {
     private JButton qAButton;
     private JButton internetButton;
     private JLabel connectTestLabel;
-
-    PlayMenu ui;
 
 
     public MainMenu() {
@@ -38,6 +34,7 @@ public class MainMenu extends IUIInterface {
 
     private void switchUI(IUIInterface ui) {
         uiStateController.setUI(ui);
+        //this.uiRelease();
     }
 
     @Override

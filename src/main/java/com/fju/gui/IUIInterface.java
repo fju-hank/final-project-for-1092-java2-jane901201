@@ -20,15 +20,19 @@ public abstract class IUIInterface{
 
     public abstract void uiUpdate();
 
-    public abstract JPanel getUIPanel(); //得到UI
-
-    public void setJFrame(JFrame frame) {
-        this.frame = frame;
+    public void uiRelease() {
+        uiStateController.releaseUI(frame);
     }
+
+    public abstract JPanel getUIPanel(); //得到UI
 
     public JFrame getFrame() {
         return frame;
     }
+
+//    public UIStateController uiStateController() {
+//        return uiStateController;
+//    }
 
     public boolean checkCurrentQuesiton() {
         return false;
