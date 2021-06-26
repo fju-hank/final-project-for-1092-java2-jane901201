@@ -14,6 +14,7 @@ public abstract class IUIInterface{
     protected UIStateController uiStateController;
     protected IDataInterface m_Data;
     protected static final JFrame frame = new JFrame();
+    protected String connectTest;
 
     public IUIInterface() {
         uiStateController = new UIStateController();
@@ -49,5 +50,7 @@ public abstract class IUIInterface{
 
     public abstract void setM_Data(IDataInterface m_Data);
 
-
+    public void setConnectTest(String connectTest) {
+        this.connectTest = connectTest;
+    }
 }

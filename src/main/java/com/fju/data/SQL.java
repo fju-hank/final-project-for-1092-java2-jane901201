@@ -15,13 +15,13 @@ public class SQL extends IConnectInterface{
             statement = connection.createStatement();
             rs = statement.executeQuery("SELECT * FROM qa_depository");
             rs = statement.executeQuery("SELECT * FROM internet");
-            System.out.println("succeed connect to SQL data");
+//            System.out.println("succeed connect to SQL data");
             return true;
 
         }catch (SQLException | ClassNotFoundException throwables) {
             //throwables.printStackTrace();
-            System.out.println("false connect to SQL data");
-            System.out.println("try connect to local data");
+//            System.out.println("false connect to SQL data");
+//            System.out.println("try connect to local data");
             return false;
         }
     }

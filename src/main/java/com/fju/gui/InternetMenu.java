@@ -34,17 +34,15 @@ public class InternetMenu extends IUIInterface {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton();
             buttons[i].setText(name.get(i));
+            buttons[i].setHorizontalAlignment(SwingConstants.LEFT);
             buttons[i].setContentAreaFilled(false);
             int temi = i;
-            buttons[i].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    try {
-                        Runtime.getRuntime().exec("cmd /c start " +
-                                url.get(temi));
-                    } catch (IOException ioException) {
-                        System.out.println("Not connect url");
-                    }
+            buttons[i].addActionListener(e -> {
+                try {
+                    Runtime.getRuntime().exec("cmd /c start " +
+                            url.get(temi));
+                } catch (IOException ioException) {
+                    System.out.println("Not connect url");
                 }
             });
             buttonScrollPanel.add(buttons[i]);
@@ -69,6 +67,5 @@ public class InternetMenu extends IUIInterface {
     public void setM_Data(IDataInterface m_Data) {
 
     }
-
 
 }

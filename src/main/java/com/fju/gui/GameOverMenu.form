@@ -55,7 +55,11 @@
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
           <text value="返回遊戲畫面"/>
+          <verticalAlignment value="0"/>
+          <verticalTextPosition value="0"/>
         </properties>
       </component>
       <component id="536a1" class="javax.swing.JLabel" binding="timeLabel">

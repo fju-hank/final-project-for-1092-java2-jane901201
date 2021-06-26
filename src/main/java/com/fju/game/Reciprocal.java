@@ -3,7 +3,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Reciprocal {
-    private int m_seconds = 5;
+    private int m_seconds = 60;
     private int m_UseSeconds = 0;
     private boolean m_bEnd = false;
     private static Timer timer;

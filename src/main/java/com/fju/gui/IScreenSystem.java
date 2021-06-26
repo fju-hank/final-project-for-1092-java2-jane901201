@@ -29,8 +29,8 @@ public class IScreenSystem {
 
     }
 
-    public void releaseFrame() {
-        frame.dispose();
+    public IUIInterface getUI() {
+        return ui;
     }
 
 }

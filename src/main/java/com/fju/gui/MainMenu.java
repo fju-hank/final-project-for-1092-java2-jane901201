@@ -10,28 +10,25 @@ public class MainMenu extends IUIInterface {
     private JButton qAButton;
     private JButton internetButton;
     private JLabel connectTestLabel;
+    private JButton exitButton;
 
 
     public MainMenu() {
-
         uiInital();
     }
 
     @Override
     public void uiInital() {
-
         gameButton.addActionListener(e -> switchUI(new PlayMenu()));
-
         //按鈕聆聽功能
         qAButton.addActionListener(e -> switchUI(new QAStoreMenu()));
-
         internetButton.addActionListener(e -> switchUI(new InternetMenu()));
-
+        exitButton.addActionListener(e -> System.exit(0));
     }
 
     @Override
     public void uiUpdate() {
-
+        connectTestLabel.setText(connectTest);
     }
 
     private void switchUI(IUIInterface ui) {

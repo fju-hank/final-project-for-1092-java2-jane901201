@@ -8,17 +8,34 @@ public class Local extends IConnectInterface{
     public boolean bCheckConnectData() {
         try {
             fis = new FileInputStream("src/main/java/com/fju/data/LocalData/qa");
-            System.out.println("succeed to connect the local data");
+            fis = new FileInputStream("src/main/java/com/fju/data/LocalData/internet");
+            //System.out.println("succeed to connect the local data");
 			return true;
         } catch (FileNotFoundException e) {
-            System.out.println("false to connect the local data");
+            //System.out.println("false to connect the local data");
             return false;
         }
     }
 
     @Override
     public void connectData(String name) {
-        System.out.println("Not connect Local");
+        try {
+            switch (name) {
+                case "question":
+                    fis = new FileInputStream("src/main/java/com/fju/data/LocalData/qa");
+                    break;
+                case "internet":
+                    fis = new FileInputStream("src/main/java/com/fju/data/LocalData/internet");
+                    break;
+                default:
+                    System.out.println("Something Wrong");
+                    break;
+            }
+
+
+        } catch (FileNotFoundException ignored) {
+
+        }
     }
 
 
@@ -86,6 +103,45 @@ public class Local extends IConnectInterface{
         } catch (IOException e) {
             e.getStackTrace();
         }
+    }
 
+    @Override
+    public void inputData(ArrayList<String> internetName, ArrayList<String> url) {
+        try {
+            fis = new FileInputStream("src/main/java/com/fju/data/LocalData/internet");
+            isr = new InputStreamReader(fis);
+            br = new BufferedReader(isr);
+
+            //String n = br.readLine();
+            String n = "temperate";
+           // System.out.println(n);
+            int check = 0;
+            while (true) {
+                n = br.readLine();
+                if(n == null) {
+                    break;
+                }
+                if(check == 2){
+                    check = 0;
+                }
+                switch (check) {
+                    case 0:
+                        internetName.add(n);
+                        break;
+                    case 1:
+                        url.add(n);
+                        break;
+                    default:
+                        break;
+            }
+                check += 1;
+//                System.out.println(n);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.getStackTrace();
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
     }
 }

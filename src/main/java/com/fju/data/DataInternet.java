@@ -20,7 +20,7 @@ public class DataInternet extends IDataInterface{
         else if(localConnect.bCheckConnectData()){ //要在加checkConnectData
             iConnectInterface = new Local();
             iConnectInterface.connectData(getClassDataName());
-            //iConnectInterface.inputData(internetName, url);
+            iConnectInterface.inputData(internetName, url);
         }
         else {
             System.out.println("Fail to get data");
