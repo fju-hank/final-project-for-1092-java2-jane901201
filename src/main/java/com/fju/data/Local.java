@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Local extends IConnectInterface{
     @Override
-    public boolean connectData() {
+    public boolean bCheckConnectData() {
         try {
             fis = new FileInputStream("src/main/java/com/fju/data/LocalData/qa");
             System.out.println("succeed to connect the local data");
@@ -15,6 +15,12 @@ public class Local extends IConnectInterface{
             return false;
         }
     }
+
+    @Override
+    public void connectData(String name) {
+        System.out.println("Not connect Local");
+    }
+
 
     @Override
     public void inputData(ArrayList<Integer> number, ArrayList<String> question,

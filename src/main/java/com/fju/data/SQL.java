@@ -7,13 +7,15 @@ public class SQL extends IConnectInterface{
 
 
     @Override
-    public boolean connectData() {
+    public boolean bCheckConnectData() {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("");
-            //connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
+            //Connection connection = DriverManager.getConnection("");
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
             statement = connection.createStatement();
             rs = statement.executeQuery("SELECT * FROM qa_depository");
+            rs = statement.executeQuery("SELECT * FROM internet");
+            System.out.println("succeed connect to SQL data");
             return true;
 
         }catch (SQLException | ClassNotFoundException throwables) {
@@ -23,6 +25,35 @@ public class SQL extends IConnectInterface{
             return false;
         }
     }
+
+    @Override
+    public void connectData(String name) {
+        try {
+            Class.forName("org.mariadb.jdbc.Driver");
+            //Connection connection = DriverManager.getConnection("");
+            connection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/climbing?user=root&password=hmt736539&useUnicode=true&characterEncoding=UTF-8");
+            statement = connection.createStatement();
+            switch (name) {
+                case "question":
+                    rs = statement.executeQuery("SELECT * FROM qa_depository");
+                    break;
+                case "internet":
+                    rs = statement.executeQuery("SELECT * FROM internet");
+                    break;
+                default:
+                    System.out.println("Something Wrong");
+
+            }
+
+
+            System.out.println("succeed connect to SQL data");
+
+
+        }catch (SQLException | ClassNotFoundException throwables) {
+            //throwables.printStackTrace();
+        }
+    }
+
 
     @Override
     public void inputData(ArrayList<Integer> number, ArrayList<String> question,
@@ -38,8 +69,20 @@ public class SQL extends IConnectInterface{
                 d.add(rs.getString("d"));
                 answer.add(rs.getString("answer"));
             }
-        } catch (SQLException throwables) {
-            System.out.println("Fail to add data");
+        } catch (SQLException | NullPointerException throwables) {
+            System.out.println("Fail to add question data");
+        }
+    }
+
+    @Override
+    public void inputData(ArrayList<String> internetName, ArrayList<String> url) {
+        try {
+            while(rs.next()) {
+                internetName.add(rs.getString("name"));
+                url.add(rs.getString("url"));
+            }
+        }catch (SQLException throwables) {
+            System.out.println("Fail to add internet data");
         }
 
     }

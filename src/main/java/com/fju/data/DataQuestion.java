@@ -4,6 +4,7 @@ public class DataQuestion extends IDataInterface{
 
 
     public DataQuestion() {
+        setClassDataName();
         getData();
     }
 
@@ -13,19 +14,20 @@ public class DataQuestion extends IDataInterface{
         IConnectInterface iConnectInterface;
         IConnectInterface sqlConnect = new SQL();
         IConnectInterface localConnect = new Local();
-
-            if(sqlConnect.connectData()) {
+        //System.out.println(sqlConnect.connectData());
+            if(sqlConnect.bCheckConnectData()) {
                 iConnectInterface = new SQL();
+                iConnectInterface.connectData(getClassDataName());
                 iConnectInterface.inputData(number, question, a, b, c, d, answer);
             }
-            else if(localConnect.connectData()){
+            else if(localConnect.bCheckConnectData()){
                 iConnectInterface = new Local();
+                iConnectInterface.connectData(getClassDataName());
                 iConnectInterface.inputData(number, question, a, b, c, d, answer);
             }
             else {
                 System.out.println("Fail to get data");
             }
-
     }
 
     @Override
@@ -34,5 +36,15 @@ public class DataQuestion extends IDataInterface{
             System.out.println(number.get(i) +"/" + question.get(i) + "/" + a.get(i)+"/" + b.get(i) +"/" + c.get(i)
                     +"/" + d.get(i) + "/" + answer);
         }
+    }
+
+    @Override
+    public void setClassDataName() {
+        classDataName = "question";
+    }
+
+    @Override
+    public String getClassDataName() {
+        return classDataName;
     }
 }

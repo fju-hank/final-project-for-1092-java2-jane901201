@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public abstract class IDataInterface {
 
+    //ClassName
+    protected String classDataName;
+
     //QuestionData
     protected ArrayList<Integer> number = new ArrayList<>();
     protected ArrayList<String> question = new ArrayList<>();
@@ -14,8 +17,8 @@ public abstract class IDataInterface {
     protected ArrayList<String> answer = new ArrayList<>();
 
     //InternetData
-    protected ArrayList<String> internet = new ArrayList<>();
-    protected ArrayList<String> unl = new ArrayList<>();
+    protected ArrayList<String> internetName = new ArrayList<>();
+    protected ArrayList<String> url = new ArrayList<>();
 
     //PlayData
     protected int totolQuestion;
@@ -52,6 +55,7 @@ public abstract class IDataInterface {
         return answer;
     }
 
+    //Play Data
     public int getTotolQuestion() {
         return totolQuestion;
     }
@@ -84,7 +88,20 @@ public abstract class IDataInterface {
         this.incorrectCount = incorrectCount;
     }
 
+    //Internet Data
+    public ArrayList<String> getInternetName() {
+        return internetName;
+    }
+
+    public ArrayList<String> getUrl() {
+        return url;
+    }
+
     protected abstract void getData();
 
     public abstract void printData();
+
+    public abstract void setClassDataName();
+
+    public  abstract String getClassDataName();
 }
