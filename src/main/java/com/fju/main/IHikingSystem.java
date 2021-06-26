@@ -13,7 +13,12 @@ public class IHikingSystem {
     IScreenSystem screenSystem;
     IDataInterface dataInterface;
 
-    public void failConnectSQL() {
+    public void inital() {
+
+    }
+
+    public void connectData() {
+
         //通知連線失敗
     }
 }

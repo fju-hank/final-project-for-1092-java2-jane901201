@@ -8,10 +8,9 @@ import javax.swing.*;
 public abstract class IUIInterface{
 
     protected UIStateController uiStateController;
-    protected JFrame frame;
+    protected static final JFrame frame = new JFrame();
 
     public IUIInterface() {
-        frame = new JFrame();
         uiStateController = new UIStateController();
         uiStateController.setJFrame(frame);
     }
