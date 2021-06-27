@@ -38,7 +38,7 @@ public class IGameSystem {
     private void playDataStore() {
         ArrayList<Integer> tem = playMenu.setPlayData();
         playRecord.setTotalTime(getUseTime());
-        playRecord.setTotolQuestion(tem.get(0) - 1 >= 0 ? tem.get(1) : 0);
+        playRecord.setTotolQuestion(Math.max(tem.get(0) - 1, 0));
         playRecord.setCorrectCount(tem.get(1));
         playRecord.setIncorrectCount(tem.get(2));
     }

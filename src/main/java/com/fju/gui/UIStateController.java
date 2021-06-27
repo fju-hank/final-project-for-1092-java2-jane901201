@@ -14,10 +14,11 @@ public class UIStateController {
     public UIStateController() {}
 
     public void setUI(IUIInterface ui) {
-            frame.setContentPane(ui.getUIPanel());
-            frame.setVisible(false);
-            frame.setSize(300,500);
-            frame.setVisible(true);
+        frame.setContentPane(ui.getUIPanel());
+        frame.setVisible(false);
+        frame.setSize(500,500);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 
     public void releaseUI(JFrame frame) {

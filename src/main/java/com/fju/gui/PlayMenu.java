@@ -134,7 +134,7 @@ public class PlayMenu extends IUIInterface {
         else {
             addIncurrentCount();
         }
-        m_CurrentNumber++;
+        m_CurrentNumber += 1;
     }
 
     @Override
@@ -150,7 +150,7 @@ public class PlayMenu extends IUIInterface {
 
     @Override
     public ArrayList<Integer> setPlayData() {
-        ArrayList<Integer> playDataArray = new ArrayList<Integer>();
+        ArrayList<Integer> playDataArray = new ArrayList<>();
 
         playDataArray.add(m_CurrentNumber);
         playDataArray.add(m_CorrectCount);

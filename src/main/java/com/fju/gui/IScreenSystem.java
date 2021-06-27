@@ -20,7 +20,8 @@ public class IScreenSystem {
         ui = new MainMenu();
         frame = ui.getFrame();
         frame.setContentPane(ui.getUIPanel());
-        frame.setSize(300,500);
+        frame.setSize(500,500);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//設定關閉可以關掉程式
     }
